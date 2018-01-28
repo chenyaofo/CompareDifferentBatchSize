@@ -43,7 +43,7 @@ class AccuracyMeter(Meter):
         targets = targets.data if isinstance(targets, Variable) else targets
         outputs = outputs.data if isinstance(outputs, Variable) else outputs
 
-        _, predicted = torch.max(outputs.data, 1)
+        _, predicted = torch.max(outputs, 1)
         self.total += targets.numel()
         self.correct += predicted.eq(targets).cpu().sum()
 
